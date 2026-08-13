@@ -1,0 +1,13 @@
+.fingerprint {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.fingerprint__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  box-sizing: border-box;
+}

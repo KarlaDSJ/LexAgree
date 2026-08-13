@@ -1,0 +1,271 @@
+.results-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-6);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.results-shell--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.status-line {
+  color: var(--ink-soft);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: var(--space-4);
+}
+
+.results-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-top: 2px;
+}
+
+.results-header__stats {
+  color: var(--ink-soft);
+  font-size: 12px;
+  margin-top: var(--space-2);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.segmented {
+  display: inline-flex;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.segmented__option {
+  border: none;
+  background: var(--paper-raised);
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.segmented__option--active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.llm-legend {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.llm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  border-radius: 999px;
+  padding: 5px 12px 5px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: opacity 0.15s ease;
+}
+
+.llm-chip--off {
+  opacity: 0.35;
+}
+
+.llm-chip__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--chip-color);
+  flex-shrink: 0;
+}
+
+.empty-state, .error-card {
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+  text-align: center;
+  max-width: 480px;
+  margin: var(--space-5) auto;
+}
+
+.empty-state h2, .error-card h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  margin: var(--space-2) 0 var(--space-2);
+}
+
+.empty-state p, .error-card__msg {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.error-card .btn {
+  margin-top: var(--space-3);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.doc-panel {
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5) var(--space-5);
+  font-family: var(--font-doc);
+  font-size: 17px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+
+/* Resaltado tipo "marcador real sobre papel": mix-blend-mode: multiply hace
+   que el color se comporte como tinta de resaltador translúcida — el texto
+   negro se mantiene legible debajo, y donde dos marcadores se cruzan (dos
+   LLMs coincidiendo en el mismo tramo) el color se mezcla de forma natural,
+   igual que pasaría con marcadores reales. */
+.hl {
+  border-radius: 1px;
+  padding: 1px 0;
+  cursor: pointer;
+  mix-blend-mode: multiply;
+  transition: filter 0.15s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hl:hover {
+  filter: brightness(0.92);
+}
+
+.hl--active {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.hl--claim {
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 0;
+}
+
+.arg-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.arg-item {
+  text-align: left;
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-left: 5px solid var(--ink);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: box-shadow 0.12s ease, transform 0.12s ease;
+}
+
+.arg-item:hover {
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(-1.5px, -1.5px);
+}
+
+.arg-item--active {
+  border-left-color: var(--blue);
+  box-shadow: 3px 3px 0 var(--blue);
+  transform: translate(-1.5px, -1.5px);
+}
+
+.arg-item__premises {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.arg-item__premises li {
+  padding-left: 2px;
+}
+
+.arg-item__claim {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  padding-top: var(--space-1);
+  border-top: 2px dashed var(--ink);
+}
+
+.arg-item__claim-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+
+.arg-item__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arg-item__score {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 860px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+  .doc-panel, .arg-list {
+    max-height: none;
+  }
+}

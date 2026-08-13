@@ -1,0 +1,46 @@
+:root {
+  /* -- Paleta: papel blanco, tinta negra, 3 acentos primarios -- */
+  --paper: #FFFFFF;
+  --paper-raised: #FFFFFF;
+  --ink: #0A0A0A;
+  --ink-soft: #666666;
+  --line: #000000;       /* líneas estructurales: negro sólido, no gris */
+  --line-soft: #E2E2E2;  /* divisores internos muy sutiles, uso escaso */
+
+  /* Los 3 colores primarios: uno por LLM real (llama/saul/qwen), y azul
+     además como color de acción primaria en toda la interfaz. */
+  --red: #E8352B;
+  --blue: #0044FF;
+  --yellow: #FFD400;
+
+  --accent: var(--blue);   /* acciones primarias, foco, estados activos */
+  --accent-dark: #0033CC;
+  --error: var(--red);
+  --consensus: var(--yellow); /* color del resaltador en modo "Resultado final" */
+
+  /* Paleta para modelos (LLMs) — los 3 primarios, en orden de asignación.
+     Si algún día hay más de 3 modelos, cicla de vuelta sobre estos mismos
+     (a propósito: la paleta se mantiene solo en negro/blanco/primarios). */
+  --llm-1: var(--red);
+  --llm-2: var(--blue);
+  --llm-3: var(--yellow);
+
+  /* Tipografía */
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif; /* títulos: grotesk bold, tono "cartel" */
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-doc: 'Source Serif 4', Georgia, serif; /* solo para el texto del documento legal citado */
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+
+  /* Espaciado */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 20px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  --radius: 2px;
+  /* Sombra dura, sin blur: look de tarjeta/sello impreso, no difuminado genérico */
+  --shadow-card: 4px 4px 0 var(--ink);
+  --shadow-card-hover: 6px 6px 0 var(--ink);
+}
