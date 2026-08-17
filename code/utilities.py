@@ -8,7 +8,7 @@ import torch.nn.functional as F
 
 login(token=os.environ["HF_TOKEN"])
 # model for similarity score
-similarity_model = 'sentence-transformers/all-MiniLM-L6-v2'
+#similarity_model = 'sentence-transformers/all-MiniLM-L6-v2'
 similarity_model = 'BAAI/bge-m3'
 # Load model from HuggingFace Hub
 tokenizer = AutoTokenizer.from_pretrained(similarity_model)
